@@ -1,0 +1,29 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/breakpoints" as *;
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the App covers the full height of the viewport */
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+    background-image: url('./assets/images/home page.svg'); /* Path to your background image */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    // padding: 1em; /* Mobile-first padding */
+    
+    // Responsive adjustments
+    @include tablet {
+        padding: 1.5em; /* Adjust padding for tablet screens */
+        background-size: cover;
+    }
+    
+    @include desktop {
+        padding: 2em; /* Adjust padding for desktop screens */
+        background-size: cover; /* Ensure background size is appropriate for desktop */
+    }
+}
