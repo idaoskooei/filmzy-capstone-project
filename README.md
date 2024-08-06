@@ -16,6 +16,13 @@ Filmzy is your movie companion, helping you discover and enjoy the perfect films
 - **Text Search:** Search for movies by typing the name directly, making it easy to find specific titles.
 - **Random Pick:** Let Filmzy surprise you by choosing a movie for you based on your chosen category!
 
+
+## Nice to haves
+- **Personalization:** Allow users to like movies and have them appear in a favorites section within their profile.
+- **User Authentication:** Enable users to securely log in and log out.
+- **Movie Suggestions Based on Search History:** Provide personalized movie recommendations based on users' search history.
+
+
 ## Installation
 1. Clone or download the repository to your local machine.
 2. Navigate to the project directory.
