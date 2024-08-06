@@ -1,0 +1,52 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.header {
+    padding: 1em 0;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 1em;
+}
+
+.logo {
+    font-size: 2em;
+    color: $separator-color;
+    margin: 0;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: $separator-color;
+    width: 100%;
+    margin-top: 1em;
+}
+
+@include tablet {
+    .header-content {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 2em;
+
+        .logo {
+            margin-right: auto;
+        }
+    }
+}
+
+@include desktop {
+    .header-content {
+        padding: 0 4em;
+    }
+}
