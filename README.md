@@ -42,39 +42,39 @@ If you want more help, please contact our support team at idaoskooei@gmail.com.
 Filmzy is developed by [Ida Oskooei].follow me on [Instagram](https://instagram.com/ida.oskooei?igshid=NGVhN2U2NjQ0Yg%3D%3D&utm_source=qr).
 
 ## Screenshots
-- road map:
+- **road map:**
   
 ![roadmap](https://github.com/user-attachments/assets/9fa4adae-eb41-4ffb-8444-f61c51dc4bb4)
 
 
-- Home page:
+- **Home page:**
   
 ![home page](https://github.com/user-attachments/assets/547b9d9c-eab0-434a-b033-781b4aa8216b)
 
 
-- Choices:
+- **Choices:**
   
 ![choices](https://github.com/user-attachments/assets/8cd1d52b-55b5-4806-845b-8ef04f911077)
 
 
-- Pick a Category:
+- **Pick a Category:**
   
 ![pick a category](https://github.com/user-attachments/assets/87053d00-1211-4066-9e37-5fe0ac1b8ab7)
 
 
 
-- Pick a random Movie:
+- **Pick a random Movie:**
 
 ![random movie](https://github.com/user-attachments/assets/338b1d91-b8b7-4f28-b3f1-3859ebf50073)
 
 
 
-- Search for a Movie:
+- **Search for a Movie:**
   
 ![search for a movie](https://github.com/user-attachments/assets/fb9f5273-b9eb-4551-a6f4-bfb944430bcd)
 
 
-- Movie Details:
+- **Movie Details:**
   
 ![movie item detail](https://github.com/user-attachments/assets/8fdcd964-8827-46c6-b1c7-3be04b47f2a0)
 
