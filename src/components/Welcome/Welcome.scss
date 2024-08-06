@@ -23,10 +23,10 @@
     background-color: $button-background-color;
     color: $button-text-color; 
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth color transition */
+    transition: background-color 0.3s; 
     
     &:hover {
         color: $white-color;
-        background-color: #0056b3; /* Darker color on hover */
+        background-color: #0056b3;
     }
 }
