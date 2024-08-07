@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
 import SearchByCategoryPage from './pages/SearchByCategoryPage/SearchByCategotyPage';
+import SearchByTermPage from './pages/searchByTermPage/searchByTermPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/homePage" element={<HomePage />} />
            <Route path="/choicesPage" element={<ChoicesPage />} />
            <Route path="/categoryPage" element={<SearchByCategoryPage />} />
+           <Route path="/searchPage" element={<SearchByTermPage />} />
           </Routes>
         </div>
         <Footer />

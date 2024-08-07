@@ -9,6 +9,11 @@ const Choices = () => {
       navigate('/categoryPage');
   };
 
+  const handleSearchButtonClick = () => {
+    navigate('/searchPage');
+};
+
+
   return (
     <div className="choices">
       <div className="choices-content">
@@ -16,7 +21,7 @@ const Choices = () => {
         <div className="choices-buttons">
           <button className="choices-button" onClick={handleCategoryButtonClick}> Pick a  <br /> Category</button>
           <button className="choices-button"> Pick a <br /> Random <br />Movie</button>
-          <button className="choices-button"> Search by <br /> term</button>
+          <button className="choices-button" onClick={handleSearchButtonClick}> Search by <br /> term</button>
         </div>
       </div>
     </div>
