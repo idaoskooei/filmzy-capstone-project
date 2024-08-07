@@ -15,8 +15,8 @@ function App() {
         <Header />
         <div className="content">
           <Routes>
-            <Route path="/" element={<Navigate to="/homePage" />} />
-            <Route path="/homePage" element={<HomePage />} />
+           <Route path="/" element={<Navigate to="/homePage" />} />
+           <Route path="/homePage" element={<HomePage />} />
            <Route path="/choicesPage" element={<ChoicesPage />} />
            <Route path="/categoryPage" element={<SearchByCategoryPage />} />
            <Route path="/searchPage" element={<SearchByTermPage />} />
