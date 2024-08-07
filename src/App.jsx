@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
+import SearchByCategoryPage from './pages/SearchByCategoryPage/SearchByCategotyPage';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/homePage" />} />
             <Route path="/homePage" element={<HomePage />} />
-            // <Route path="/choicesPage" element={<ChoicesPage />} />
+           <Route path="/choicesPage" element={<ChoicesPage />} />
+           <Route path="/categoryPage" element={<SearchByCategoryPage />} />
           </Routes>
         </div>
         <Footer />
