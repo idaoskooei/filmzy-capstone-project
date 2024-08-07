@@ -1,0 +1,109 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../assets/images/choices-mobile-background.png'); 
+  background-size: cover;
+  background-position: center;
+  padding: 1em;
+
+  @include tablet {
+    background-image: url('../../assets/images/choices-background.png'); 
+    padding: 1.5em;
+  }
+
+  @include desktop {
+    background-image: url('../../assets/images/choices-background.png'); 
+    padding: 2em;
+  }
+}
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 2em;
+
+  form {
+    display: flex;
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  input {
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    flex-grow: 1;
+
+    @include tablet {
+      flex-grow: 1;
+    }
+
+    @include desktop {
+      flex-grow: 1;
+    }
+  }
+
+  button {
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+
+    svg {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.movie-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.movie-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .movie-title {
+    margin-top: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .movie-release-date {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .movie-description {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+  }
+}

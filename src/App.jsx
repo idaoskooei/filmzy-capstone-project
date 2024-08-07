@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
 import SearchByCategoryPage from './pages/SearchByCategoryPage/SearchByCategotyPage';
-import SearchByTermPage from './pages/searchByTermPage/searchByTermPage';
+import SearchByTermPage from './pages/SearchPage/SearchPage';
 
 function App() {
   return (
