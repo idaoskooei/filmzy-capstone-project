@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.home-page {
+    flex: 1;
+    background-image: url('../../assets/images/mobile-background.png');
+    background-color: $home-page-background;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    width: 100%;
+
+    @include tablet {
+        background-image: url('../../assets/images/home page.svg');
+        padding: 1.5em;
+        background-size: cover;
+    }
+
+    @include desktop {
+        background-image: url('../../assets/images/home page.svg');
+        padding: 2em;
+        background-size: cover;
+    }
+}

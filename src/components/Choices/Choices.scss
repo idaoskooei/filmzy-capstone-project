@@ -1,0 +1,66 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../assets/images/choices-mobile-background.png'); 
+    background-size: cover;
+    background-position: center;
+
+    @include tablet{
+      background-image: url('../../assets/images/choices-background.png'); 
+      background-size: cover;
+    }
+    @include desktop{
+      background-image: url('../../assets/images/choices-background.png'); 
+      background-size: cover;
+    }
+  }
+  
+  .choices-content {
+    text-align: center;
+  }
+  
+  .choices-text {
+    font-size: 2em;
+    color: $welcome-text;
+    margin-bottom: 1em;
+  }
+  
+  .choices-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem; 
+
+    @include tablet{
+      flex-direction: row;
+    }
+    @include desktop{
+      flex-direction: row;
+    }
+  }
+  
+  .choices-button {
+    font-size: 1.3rem;
+    width: 100px;
+    height: 100px;
+    background-color: $button-choices-color;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include tablet{
+    width: 200px;
+    height: 200px;
+    }
+    @include desktop{
+    width: 200px;
+    height: 200px;
+    }
+
+  }
+  

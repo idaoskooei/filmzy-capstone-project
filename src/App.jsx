@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Welcome from './components/Welcome/Welcome';
-
+import HomePage from './pages/HomePage/HomePage';
+import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
 
 function App() {
   return (
@@ -14,7 +14,8 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<Navigate to="/homePage" />} />
-            <Route path="/homePage" element={<Welcome />} />
+            <Route path="/homePage" element={<HomePage />} />
+            // <Route path="/choicesPage" element={<ChoicesPage />} />
           </Routes>
         </div>
         <Footer />
