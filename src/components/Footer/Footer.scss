@@ -1,5 +1,7 @@
 @use "../../styles/partials/colors" as *;
 
+@use "../../styles/partials/colors" as *;
+
 .footer {
     background-color: $header-footer-background;
     color: black;
@@ -9,10 +11,5 @@
     width: 100%;
     bottom: 0;
     left: 0;
-    z-index: 1000; 
-    overflow: hidden;
-}
-
-.footer p {
-    margin: 0;
+    z-index: 1000;
 }

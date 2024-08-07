@@ -2,9 +2,11 @@
 @use "../../styles/partials/breakpoints" as *;
 
 .header {
-    position: relative;
+    position: fixed; 
+    top: 0; 
     width: 100%;
-    overflow: hidden;
+    z-index: 1000;
+    background-color: white;
 }
 
 .header-content {
@@ -13,7 +15,8 @@
     align-items: center;
     width: 100%;
     padding: 0 1em;
-
+    background-color: white;
+    
     @include tablet {
         flex-direction: row;
         justify-content: flex-start;
