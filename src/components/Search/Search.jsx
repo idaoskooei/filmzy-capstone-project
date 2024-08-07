@@ -17,7 +17,7 @@ const Search = () => {
           params: {
             api_key: 'b374a90d9ab89653cff28333dccd5836',
             query: query,
-            adult: false,  // Set adult to false
+            adult: false,
           },
         });
         setMovies(response.data.results);
