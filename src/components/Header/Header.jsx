@@ -7,7 +7,6 @@ const Header = () => {
             <div className="header-content">
                 <Link to="/" className="logo">Filmzy</Link>
             </div>
-            <hr className="separator" />
         </header>
     );
 };
