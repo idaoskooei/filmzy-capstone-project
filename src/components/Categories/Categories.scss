@@ -1,0 +1,79 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.category-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/images/mobile-background-category.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include tablet {
+    background-image: url('../../assets/images/pick-category-background.png');
+    background-size: cover;
+  }
+
+  @include desktop {
+    background-image: url('../../assets/images/pick-category-background.png');
+    background-size: cover;
+  }
+
+  .category-content {
+    text-align: center;
+    color: $welcome-text;
+  }
+
+  .category-text {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  .genre-list {
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em; 
+  }
+
+  .genre-item {
+    cursor: pointer;
+    background-color: $card-background-color; 
+    color: $welcome-text; 
+    padding: 0.5 em;
+    border-radius: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 1em; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include tablet {
+    .category-text {
+      font-size: 1em;
+    }
+
+    .genre-list {
+      font-size: 1em;
+    }
+  }
+
+  @include desktop {
+    .category-text {
+      font-size: 2.5em;
+    }
+
+    .genre-list {
+      font-size: 1.5em;
+    }
+  }
+}
