@@ -77,7 +77,7 @@ To start the application locally:
 
 - **Choices:**
   
-![choices](https://github.com/user-attachments/assets/60fbae77-92af-4b1a-a4d2-2407484d26de)
+![choices](https://github.com/user-attachments/assets/2e4d684d-e4ea-4802-aa2a-f58df8778d07)
 
 
 
@@ -85,6 +85,14 @@ To start the application locally:
 - **Pick a Category:**
   
 ![pick a category](https://github.com/user-attachments/assets/effb3a81-7257-453b-86de-1213b91988f8)
+
+
+
+
+- **List of movies based on chosen category:**
+
+
+![list of movies based on category](https://github.com/user-attachments/assets/47a62821-fa32-4a92-b644-3b34cdb32599)
 
 
 
