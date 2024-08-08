@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage/HomePage';
 import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
 import SearchByCategoryPage from './pages/SearchByCategoryPage/SearchByCategotyPage';
 import SearchByTermPage from './pages/SearchPage/SearchPage';
+import MovieListPage from './pages/MovieListPage/MovieListPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
            <Route path="/choicesPage" element={<ChoicesPage />} />
            <Route path="/categoryPage" element={<SearchByCategoryPage />} />
            <Route path="/searchPage" element={<SearchByTermPage />} />
+           <Route path="/movieListPage/:genreId" element={<MovieListPage />} />
           </Routes>
         </div>
         <Footer />
