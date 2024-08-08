@@ -2,73 +2,55 @@
 @use "../../styles/partials/colors" as *;
 
 .movie-list {
+  background-image: url('../../assets/images/mobile-background-category.png');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background-image: url('../../assets/images/mobile-background-category.png'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 2em 1em;
-  width: 100%;
-
+  align-items: center;
+  padding: 2.5rem;
+ 
   @include tablet {
-    background-image: url('../../assets/images/pick-category-background.png'); 
+    background-image: url('../../assets/images/pick-category-background.png');
     background-size: cover;
+
   }
 
   @include desktop {
-    background-image: url('../../assets/images/pick-category-background.png'); 
+    background-image: url('../../assets/images/pick-category-background.png');
     background-size: cover;
+
   }
 }
 
 .movie-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  margin-bottom: 2em;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1em;
-
+  background-color: $movie-card-background;
+  width: 70%;
+  height: 100px;
+  margin: 1.5rem;
 
   .movie-details {
-    padding: 1em;
-    
-    .movie-title {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin: 0.5em 0;
-    }
 
-    .movie-release-date {
-      font-size: 1em;
-      color: black;
-      margin: 0.5em 0;
+    .movie-title {
+ 
+      &::after {
+        content: " (" attr(data-release-date) ")";
+        font-size: 1em;
+        color: gray;
+      }
     }
 
     .movie-description {
-      font-size: 0.9em;
-      color: black;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3; 
-      -webkit-box-orient: vertical;
+
     }
   }
 
   @include tablet {
-    max-width: 500px;
   }
 
   @include desktop {
-    max-width: 700px;
   }
 }
