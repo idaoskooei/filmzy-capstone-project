@@ -64,7 +64,7 @@ To start the application locally:
 
 
 
-### Mockups
+### Mockups created using Canva
 
 
 
