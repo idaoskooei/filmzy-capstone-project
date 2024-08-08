@@ -7,7 +7,7 @@ const MovieList = ({ movies }) => {
       {movies.length > 0 ? (
         movies.map((movie) => (
           <div key={movie.id} className="movie-card">
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+            {/* <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> */}
             <div className="movie-details">
               <h3 className="movie-title">{movie.title}</h3>
               <p className="movie-release-date">{movie.release_date}</p>
