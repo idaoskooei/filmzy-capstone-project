@@ -2,55 +2,81 @@
 @use "../../styles/partials/colors" as *;
 
 .movie-list {
-  background-image: url('../../assets/images/mobile-background-category.png');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2.5rem;
- 
-  @include tablet {
-    background-image: url('../../assets/images/pick-category-background.png');
-    background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 
+  @include tablet {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   @include desktop {
-    background-image: url('../../assets/images/pick-category-background.png');
-    background-size: cover;
-
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
 
 .movie-card {
-  background-color: $movie-card-background;
-  width: 70%;
-  height: 100px;
-  margin: 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   .movie-details {
+    padding: 20px;
 
     .movie-title {
- 
-      &::after {
-        content: " (" attr(data-release-date) ")";
-        font-size: 1em;
-        color: gray;
-      }
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
 
     .movie-description {
+      font-size: 1rem;
+      color: #666666;
+      line-height: 1.4;
+    }
 
+    [data-release-date] {
+      font-size: 0.9rem;
+      color: #999999;
+      margin-bottom: 10px;
     }
   }
+}
 
-  @include tablet {
+@include tablet {
+  .movie-card {
+    .movie-details {
+      padding: 25px;
+
+      .movie-title {
+        font-size: 1.3rem;
+      }
+
+      .movie-description {
+        font-size: 1.1rem;
+      }
+    }
   }
+}
 
-  @include desktop {
+@include desktop {
+  .movie-card {
+    .movie-details {
+      padding: 30px;
+
+      .movie-title {
+        font-size: 1.5rem;
+      }
+
+      .movie-description {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
