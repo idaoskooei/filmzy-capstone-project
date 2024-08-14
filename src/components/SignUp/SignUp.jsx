@@ -1,22 +1,39 @@
 import { useState } from 'react';
 import './SignUp.scss';
-import logo from '../../assets/icons/welcome-back.png'; // Update this path if necessary
+import logo from '../../assets/icons/welcome-back.png';
+import { auth } from '../../firebase-config';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
         if (password !== confirmPassword) {
-            alert("Passwords do not match!");
+            toast.error("Passwords do not match!");
             return;
         }
 
-        console.log('Email:', email);
-        console.log('Password:', password);
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            toast.success('Sign up successful!');
+            setTimeout(() => {
+                navigate('/choicespage'); 
+            }, 2000);
+
+        } catch (error) {
+            toast.error(error.message);
+            console.error('Error signing up:', error.message);
+        }
     };
 
     return (
@@ -58,6 +75,7 @@ const SignUp = () => {
                 </div>
                 <button type="submit" className="sign-up-button">Sign Up</button>
             </form>
+            <ToastContainer />
         </div>
     );
 };
