@@ -13,6 +13,10 @@ const Choices = () => {
     navigate('/searchPage');
 };
 
+const handleRandomButtonClick = () => {
+  navigate('/randomMovie');
+};
+
 
   return (
     <div className="choices">
@@ -20,7 +24,7 @@ const Choices = () => {
         <p className="choices-text">Choices:</p>
         <div className="choices-buttons">
           <button className="choices-button" onClick={handleCategoryButtonClick}> Pick a  <br /> Category</button>
-          <button className="choices-button"> Pick a <br /> Random <br />Movie</button>
+          <button className="choices-button" onClick={handleRandomButtonClick}> Pick a <br /> Random <br />Movie</button>
           <button className="choices-button" onClick={handleSearchButtonClick}> Search by <br /> term</button>
         </div>
       </div>
