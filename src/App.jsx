@@ -10,6 +10,7 @@ import SearchByTermPage from './pages/SearchPage/SearchPage';
 import MovieListPage from './pages/MovieListPage/MovieListPage';
 import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
 import RandomMoviePage from './pages/RandomMoviePage/RandomMoviePage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
            <Route path="/movieListPage/:genreId" element={<MovieListPage />} />
            <Route path="/movieDetail/:movieId" element={<MovieDetailPage />} />
            <Route path="/randomMovie" element={<RandomMoviePage />} />
+           <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </div>
         <Footer />
