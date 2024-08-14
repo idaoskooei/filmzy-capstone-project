@@ -1,26 +1,34 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { auth } from '../firebase-config';
-import { onAuthStateChanged } from 'firebase/auth';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
-  const [authenticatedUser, setAuthenticatedUser] = useState(null);
+export const AuthProvider = ({ children }) => {
+    const [authenticatedUser, setAuthenticatedUser] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setAuthenticatedUser(user);
-    });
-    return () => unsubscribe();
-  }, []);
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                setAuthenticatedUser(user);
+            } else {
+                setAuthenticatedUser(null);
+            }
+        });
 
-  return (
-    <AuthContext.Provider value={{ authenticatedUser }}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
+        return () => unsubscribe(); 
+    }, []);
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+    return (
+        <AuthContext.Provider value={{ authenticatedUser }}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
+
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context;
+};

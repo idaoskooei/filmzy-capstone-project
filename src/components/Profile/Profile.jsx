@@ -17,8 +17,6 @@ const Profile = () => {
     const [newProfilePicture, setNewProfilePicture] = useState(authenticatedUser?.photoURL || '');
     const [isModalOpen, setModalOpen] = useState(false);
 
-    console.log('Authenticated User:', authenticatedUser);
-
     useEffect(() => {
         if (authenticatedUser) {
             setNewProfilePicture(authenticatedUser.photoURL || '');
@@ -29,9 +27,7 @@ const Profile = () => {
         try {
             await signOut(auth);
             toast.success('Signed out successfully!');
-            setTimeout(() => {
-                navigate('/'); 
-            }, 2000);
+            navigate('/'); 
         } catch (error) {
             toast.error('Error signing out!');
             console.error('Error signing out:', error.message);
@@ -57,17 +53,14 @@ const Profile = () => {
 
             const userDocRef = doc(firestore, 'users', authenticatedUser.uid);
             await updateDoc(userDocRef, {
-                
                 profilePicture: downloadURL,
             });
-            console.log('User Document Reference:', userDocRef);
-
 
             toast.success('Profile picture updated successfully!');
             setNewProfilePicture(downloadURL);
         } catch (error) {
             toast.error('Error uploading profile picture!');
-            console.error('Error uploading profile picture:', error.message, error);
+            console.error('Error uploading profile picture:', error.message);
         } finally {
             setUploading(false);
         }
@@ -77,15 +70,11 @@ const Profile = () => {
         setModalOpen(true); 
     };
 
-    const handleStartButton = () => {
-        navigate("/");
-    };
-
     if (!authenticatedUser) {
         return (
             <div className='no-user-container'>
                 <p className="profile-message">Please Sign in to see your profile!</p>
-                <button className='start-button' onClick={handleStartButton}>Start Here!</button>
+                <button className='start-button' onClick={() => navigate("/")}>Start Here!</button>
             </div>
         ); 
     }
@@ -107,7 +96,7 @@ const Profile = () => {
                 </div>
                 <button className="sign-out" onClick={handleSignOut} disabled={isUploading}>Sign Out</button>
             </div>
-            {isUploading && <div className="spinner"></div>} {/* Show spinner if uploading */}
+            {isUploading && <div className="spinner"></div>}
             <ProfileModal
                 isOpen={isModalOpen}
                 onClose={() => setModalOpen(false)}
