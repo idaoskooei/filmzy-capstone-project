@@ -8,6 +8,7 @@ import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
 import SearchByCategoryPage from './pages/SearchByCategoryPage/SearchByCategotyPage';
 import SearchByTermPage from './pages/SearchPage/SearchPage';
 import MovieListPage from './pages/MovieListPage/MovieListPage';
+import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
            <Route path="/categoryPage" element={<SearchByCategoryPage />} />
            <Route path="/searchPage" element={<SearchByTermPage />} />
            <Route path="/movieListPage/:genreId" element={<MovieListPage />} />
+           <Route path="/movieDetail/:movieId" element={<MovieDetailPage />} />
           </Routes>
         </div>
         <Footer />
