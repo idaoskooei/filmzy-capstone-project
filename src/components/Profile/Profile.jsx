@@ -8,18 +8,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { doc, updateDoc } from 'firebase/firestore';
 import ProfileModal from '../ProfileModal/ProfileModal';
+import { useAuth } from '../../contexts/AuthContext';
 
-const Profile = ({ user }) => {
+const Profile = () => {
     const navigate = useNavigate();
+    const { authenticatedUser } = useAuth();
     const [isUploading, setUploading] = useState(false);
-    const [newProfilePicture, setNewProfilePicture] = useState(user?.profilePicture || '');
+    const [newProfilePicture, setNewProfilePicture] = useState(authenticatedUser?.photoURL || '');
     const [isModalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
-        if (user) {
-            setNewProfilePicture(user.profilePicture || '');
+        if (authenticatedUser) {
+            setNewProfilePicture(authenticatedUser.photoURL || '');
         }
-    }, [user]);
+    }, [authenticatedUser]);
 
     const handleSignOut = async () => {
         try {
@@ -38,23 +40,20 @@ const Profile = ({ user }) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        console.log('User:', user); 
-
-
         setUploading(true);
-        setModalOpen(false); 
+        setModalOpen(false);
 
         try {
-            if (!user || !user.uid) {
+            if (!authenticatedUser || !authenticatedUser.uid) {
                 throw new Error('User ID is missing');
             }
 
-            const storageRef = ref(storage, `profilePictures/${user.uid}`);
+            const storageRef = ref(storage, `profilePictures/${authenticatedUser.uid}`);
             await uploadBytes(storageRef, file);
 
             const downloadURL = await getDownloadURL(storageRef);
 
-            const userDocRef = doc(firestore, 'users', user.uid);
+            const userDocRef = doc(firestore, 'users', authenticatedUser.uid);
             await updateDoc(userDocRef, {
                 profilePicture: downloadURL,
             });
@@ -68,6 +67,7 @@ const Profile = ({ user }) => {
             setUploading(false);
         }
     };
+    
 
     const handleEditProfileClick = () => {
         setModalOpen(true); 
@@ -77,24 +77,24 @@ const Profile = ({ user }) => {
         navigate("/")
     };
 
-    if (!user) {
-        return(<>
-        <div className='no-user-container'>
-        <p className="profile-message">Please Sign in to see your profile!</p>
-        <button className='start-button' onClick={handleStartButton}> Start Here!</button>
-        </div>
-        </>) 
+    if (!authenticatedUser) {
+        return (
+            <div className='no-user-container'>
+                <p className="profile-message">Please Sign in to see your profile!</p>
+                <button className='start-button' onClick={handleStartButton}> Start Here!</button>
+            </div>
+        ); 
     }
 
     return (
         <div className="profile">
             <div className="profile-header">
                 <img
-                    src={newProfilePicture || user.profilePicture || 'default-profile.png'}
+                    src={newProfilePicture || authenticatedUser.photoURL || 'default-profile.png'}
                     alt="Profile"
                     className="profile-picture"
                 />
-                <h2 className="user-name">{user.name}</h2>
+                <h2 className="user-name">{authenticatedUser.displayName || 'User'}</h2>
             </div>
             <div className="profile-content">
                 <div className="favorites">
