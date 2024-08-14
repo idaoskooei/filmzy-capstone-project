@@ -17,10 +17,10 @@
     width: 100%;
     padding: 1em 1em; 
     background-color: white;
-    
+
     @include tablet {
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-between;
         padding: 1em 2em;
     }
 
@@ -34,4 +34,19 @@
     color: $separator-color;
     margin: 0;
     text-decoration: none; 
+}
+
+.nav-links {
+    display: flex;
+    gap: 1em;
+
+    .nav-icon {
+        color: $separator-color;
+        font-size: 1.5em;
+        text-decoration: none;
+
+        &:hover {
+            color: rgb(225, 180, 154);
+        }
+    }
 }
