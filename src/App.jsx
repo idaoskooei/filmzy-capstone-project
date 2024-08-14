@@ -11,6 +11,7 @@ import MovieListPage from './pages/MovieListPage/MovieListPage';
 import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
 import RandomMoviePage from './pages/RandomMoviePage/RandomMoviePage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import SignInPage from './pages/SignInPage/SignInPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
            <Route path="/movieDetail/:movieId" element={<MovieDetailPage />} />
            <Route path="/randomMovie" element={<RandomMoviePage />} />
            <Route path="/profile" element={<ProfilePage />} />
+           <Route path="/signin" element={<SignInPage />} />
           </Routes>
         </div>
         <Footer />
