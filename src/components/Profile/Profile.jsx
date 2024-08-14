@@ -17,6 +17,8 @@ const Profile = () => {
     const [newProfilePicture, setNewProfilePicture] = useState(authenticatedUser?.photoURL || '');
     const [isModalOpen, setModalOpen] = useState(false);
 
+    console.log('Authenticated User:', authenticatedUser);
+
     useEffect(() => {
         if (authenticatedUser) {
             setNewProfilePicture(authenticatedUser.photoURL || '');
@@ -55,33 +57,35 @@ const Profile = () => {
 
             const userDocRef = doc(firestore, 'users', authenticatedUser.uid);
             await updateDoc(userDocRef, {
+                
                 profilePicture: downloadURL,
             });
+            console.log('User Document Reference:', userDocRef);
+
 
             toast.success('Profile picture updated successfully!');
             setNewProfilePicture(downloadURL);
         } catch (error) {
             toast.error('Error uploading profile picture!');
-            console.error('Error uploading profile picture:', error.message);
+            console.error('Error uploading profile picture:', error.message, error);
         } finally {
             setUploading(false);
         }
     };
-    
 
     const handleEditProfileClick = () => {
         setModalOpen(true); 
     };
 
     const handleStartButton = () => {
-        navigate("/")
+        navigate("/");
     };
 
     if (!authenticatedUser) {
         return (
             <div className='no-user-container'>
                 <p className="profile-message">Please Sign in to see your profile!</p>
-                <button className='start-button' onClick={handleStartButton}> Start Here!</button>
+                <button className='start-button' onClick={handleStartButton}>Start Here!</button>
             </div>
         ); 
     }
@@ -98,11 +102,12 @@ const Profile = () => {
             </div>
             <div className="profile-content">
                 <div className="favorites">
-                    <button className='favorites-btn'>Favorites</button>
-                    <button className='edit' onClick={handleEditProfileClick}>Edit My Profile</button>
+                <button className='favorites-btn' disabled={isUploading}>Favorites</button>
+                <button className='edit' onClick={handleEditProfileClick} disabled={isUploading}>Edit My Profile</button>
                 </div>
-                <button className="sign-out" onClick={handleSignOut}>Sign Out</button>
+                <button className="sign-out" onClick={handleSignOut} disabled={isUploading}>Sign Out</button>
             </div>
+            {isUploading && <div className="spinner"></div>} {/* Show spinner if uploading */}
             <ProfileModal
                 isOpen={isModalOpen}
                 onClose={() => setModalOpen(false)}

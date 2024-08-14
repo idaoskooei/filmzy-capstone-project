@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCQCFLdIyILIyGmzIfOmtPNYdgstdgbeKU",  
@@ -16,5 +17,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app);
+
+setPersistence(auth, browserLocalPersistence)
+    .then(() => {
+      console.log('Authentication persistence successfully set to local storage.');
+
+    })
+    .catch((error) => {
+        console.error('Error setting persistence:', error);
+    });
 
 export { auth, firestore, storage };
