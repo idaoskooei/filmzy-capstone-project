@@ -7,12 +7,20 @@
     align-items: center;
     justify-content: center; 
     height: 100vh;
-    text-align: center; 
+    text-align: center;
 }
 
 .welcome-text {
     font-size: 2em;
     margin-bottom: 1em;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    gap: 1.5em;
 }
 
 .welcome-button {
@@ -21,8 +29,7 @@
     border: none;
     border-radius: $button-border-radius;
     background-color: $button-background-color;
-    color: $button-text-color; 
-    cursor: pointer;
+    color: $button-text-color;
     transition: background-color 0.3s; 
     
     &:hover {
