@@ -2,7 +2,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
 
-
 .profile {
     display: flex;
     flex-direction: column;
@@ -90,6 +89,56 @@
             &:hover {
                 background-color: $button-hover-background-color;
                 color: $button-hover-text-color;
+            }
+        }
+    }
+
+    @include tablet {
+        padding: 1.5em;
+        .profile-header {
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+            .user-name {
+                font-size: 1.4em;
+            }
+        }
+        .profile-content {
+            .favorites h3 {
+                font-size: 1.2em;
+            }
+            .favorites-list .favorite-item {
+                padding: 0.6em 0.8em;
+            }
+            .sign-out {
+                font-size: 1em;
+                padding: 0.6em 1.2em;
+            }
+        }
+    }
+
+    @include desktop {
+        padding: 2em;
+        .profile-header {
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+            .user-name {
+                font-size: 1.6em;
+            }
+        }
+        .profile-content {
+            .favorites h3 {
+                font-size: 1.4em;
+            }
+            .favorites-list .favorite-item {
+                padding: 0.75em 1em;
+            }
+            .sign-out {
+                font-size: 1.1em;
+                padding: 0.75em 1.5em;
             }
         }
     }
