@@ -1,12 +1,24 @@
 import './Profile.scss';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase-config';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = ({ user }) => {
     const navigate = useNavigate();
 
-    const handleSignOut = () => {
-        console.log('Sign out');
-        navigate('/'); 
+    const handleSignOut = async () => {
+        try {
+            await signOut(auth);
+            toast.success('Signed out successfully!');
+            setTimeout(() => {
+                navigate('/'); 
+            }, 2000);
+        } catch (error) {
+            toast.error('Error signing out!');
+            console.error('Error signing out:', error.message);
+        }
     };
 
     return (
@@ -27,6 +39,7 @@ const Profile = ({ user }) => {
                 </div>
                 <button className="sign-out" onClick={handleSignOut}>Sign Out</button>
             </div>
+            <ToastContainer />
         </div>
     );
 };
