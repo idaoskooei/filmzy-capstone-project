@@ -3,16 +3,12 @@
 @use "../../styles/partials/breakpoints" as *;
 
 .profile {
+    margin: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: $background-color; 
-    border-radius: 12px; 
+    align-items: center; 
     padding: 2em;
-    width: 90%;
-    max-width: 800px; 
-    margin: 2em auto;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    width: 100%;
     font-family: $font-family;
 
     .profile-header {
@@ -45,32 +41,27 @@
         text-align: center;
 
         .favorites {
-            cursor: pointer;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
             margin: 1.5em 0; 
 
-            h3 {
-                font-size: 1.4em; 
-                color: $secondary-text-color; 
-                margin-bottom: 1em; 
-            }
+            .favorites-btn,
+            .edit {
+                width: 80%; 
+                max-width: 200px; 
+                margin: 0.5em 0; 
+                font-size: 1em;
+                padding: 0.5em 1em;
+                border: none;
+                border-radius: $button-border-radius;
+                color: black;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
 
-            .favorites-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-
-                .favorite-item {
-                    background-color: $item-background-color; 
-                    padding: 0.75em 1em; 
-                    border-radius: 8px; 
-                    margin-bottom: 0.75em;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    transition: background-color 0.3s, transform 0.3s; 
-
-                    &:hover {
-                        background-color: $hover-item-background-color; 
-                        transform: translateY(-2px); 
-                    }
+                &:hover {
+                    background-color: rgb(225, 223, 223);
+                    color: black;
                 }
             }
         }
