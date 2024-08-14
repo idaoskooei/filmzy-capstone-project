@@ -9,11 +9,11 @@ const Welcome = () => {
     };
 
     const handleSignInClick = () => {
-        navigate('/signIn');
+        navigate('/signin');
     };
 
     const handleSignOutClick = () => {
-        navigate('/signOut');
+        navigate('/signup');
     };
 
     return (
