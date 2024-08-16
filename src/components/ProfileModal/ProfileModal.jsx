@@ -5,18 +5,19 @@ const ProfileModal = ({ isOpen, onClose, onImageChange }) => {
     if (!isOpen) return null;
   
     const handleFileChange = (event) => {
-      if (event.target.files.length > 0) {
-        onImageChange(event);
-      }
+        if (event.target.files.length > 0) {
+            onImageChange(event);
+        }
     };
   
     return (
-      <div className="modal">
-        <div className="modal-content">
-          <button onClick={onClose}>Close</button>
-          <input type="file" accept="image/*" onChange={handleFileChange} />
+        <div className="modal">
+            <div className="modal-content">
+                <button className="close-button" onClick={onClose}>Close</button>
+                <input type="file" accept="image/*" onChange={handleFileChange} />
+            </div>
         </div>
-      </div>
     );
-  };
+};
+
 export default ProfileModal;
