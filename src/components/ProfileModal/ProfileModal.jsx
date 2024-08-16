@@ -1,4 +1,5 @@
 import "./ProfileModal.scss";
+import PropTypes from "prop-types";
 
 const ProfileModal = ({ isOpen, onClose, onImageChange }) => {
   if (!isOpen) return null;
@@ -21,6 +22,12 @@ const ProfileModal = ({ isOpen, onClose, onImageChange }) => {
       </div>
     </div>
   );
+};
+
+ProfileModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onImageChange: PropTypes.func.isRequired,
 };
 
 export default ProfileModal;

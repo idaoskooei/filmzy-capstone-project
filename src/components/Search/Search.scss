@@ -6,19 +6,19 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background-image: url('../../assets/images/choices-mobile-background.png'); 
+  background-image: url("../../assets/images/choices-mobile-background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   padding: 1em;
 
   @include tablet {
-    background-image: url('../../assets/images/choices-background.png'); 
+    background-image: url("../../assets/images/choices-background.png");
     padding: 1.5em;
   }
 
   @include desktop {
-    background-image: url('../../assets/images/choices-background.png'); 
+    background-image: url("../../assets/images/choices-background.png");
     padding: 2em;
   }
 }
@@ -81,7 +81,7 @@
   padding: 1em;
   border-radius: 15px;
   width: 255px;
-  height: 355px; 
+  height: 355px;
   text-align: center;
   color: black;
   display: flex;
@@ -98,7 +98,7 @@
     width: 100%;
     height: 60%;
     border-radius: 10px;
-    object-fit: cover; 
+    object-fit: cover;
   }
 
   .movie-title {
@@ -121,7 +121,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
 

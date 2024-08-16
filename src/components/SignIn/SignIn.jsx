@@ -37,6 +37,10 @@ const SignIn = () => {
         email,
         password
       );
+
+      const user = userCredential.user;
+      console.log("User details:", user);
+
       toast.success("Sign in successful!");
       setEmail("");
       setPassword("");
@@ -101,8 +105,7 @@ const SignIn = () => {
       </form>
       <div className="sign-up-link">
         <p>
-          {" "}
-          Dont have an account yet? <a href="/signup"> Sign up here</a>
+          Dont have an account yet? <a href="/signup">Sign up here</a>
         </p>
       </div>
       <ToastContainer />

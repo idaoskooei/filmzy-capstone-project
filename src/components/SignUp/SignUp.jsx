@@ -46,12 +46,16 @@ const SignUp = () => {
         email,
         password
       );
+
+      const user = userCredential.user;
+      console.log("User signed up:", user);
+
       toast.success("Sign up successful!");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
       setTimeout(() => {
-        navigate("/choicespage");
+        navigate("/profile");
       }, 2000);
     } catch (error) {
       let errorMessage = "An error occurred";

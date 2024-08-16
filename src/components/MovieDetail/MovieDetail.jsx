@@ -1,4 +1,5 @@
 import "./MovieDetail.scss";
+import PropTypes from 'prop-types';
 import {
   FaCalendarAlt,
   FaClock,
@@ -47,5 +48,23 @@ const MovieDetail = ({ movie }) => {
     </div>
   );
 };
+
+MovieDetail.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    runtime: PropTypes.number.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    original_language: PropTypes.string.isRequired,
+    homepage: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+  }),
+};
+
 
 export default MovieDetail;
