@@ -16,7 +16,6 @@ const FavoritesList = ({ favorites, onMovieClick }) => {
                     />
                     <div className="movie-details">
                         <h3 className="movie-title">{movie.title}</h3>
-                        <p className="movie-description">{movie.overview}</p>
                     </div>
                 </div>
             ))}

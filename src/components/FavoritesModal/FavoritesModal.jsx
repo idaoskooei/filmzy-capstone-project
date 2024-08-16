@@ -8,8 +8,8 @@ const FavoritesModal = ({ isOpen, onClose, favorites, onMovieClick }) => {
     return (
         <div className="favorites-modal">
             <div className="modal-content">
+            <FavoritesList favorites={favorites} onMovieClick={onMovieClick} />
                 <button onClick={onClose} className="close-btn">Close</button>
-                <FavoritesList favorites={favorites} onMovieClick={onMovieClick} />
             </div>
         </div>
     );

@@ -30,7 +30,13 @@ const MovieList = ({ movies }) => {
     };
     setLikedMovies(newLikedMovies);
     localStorage.setItem('likedMovies', JSON.stringify(newLikedMovies));
+
+    const updatedFavorites = Object.keys(newLikedMovies)
+        .filter(id => newLikedMovies[id])
+        .map(id => movies.find(movie => movie.id === id));
+
 };
+
 
 
   const indexOfLastMovie = currentPage * moviesPerPage;

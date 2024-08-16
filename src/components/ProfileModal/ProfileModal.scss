@@ -15,8 +15,8 @@
     background-color: white;
     padding: 20px;
     border-radius: 15px;
-    max-width: 400px;
-    width: 90%;
+    max-width: 500px;
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -27,6 +27,7 @@
 
 input[type="file"] {
     margin: 70px;
+    align-self: center;
 }
 
 .close-button {
@@ -37,5 +38,14 @@ input[type="file"] {
     border-radius: 30px;
     cursor: pointer;
     align-self: center; 
-    margin-top: 70px;
+    margin: 50px;
+    margin-top: 20px;
+
+    &:hover {
+        background: #c0392b;
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
