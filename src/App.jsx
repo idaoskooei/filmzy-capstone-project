@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
-import ChoicesPage from './pages/ChoicesPage/ChoicesPage';
 import SearchByCategoryPage from './pages/SearchByCategoryPage/SearchByCategotyPage';
 import SearchByTermPage from './pages/SearchPage/SearchPage';
 import MovieListPage from './pages/MovieListPage/MovieListPage';
@@ -14,6 +13,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import { AuthProvider, useAuth } from './contexts/AuthContext'; 
+import Choices from './components/Choices/Choices';
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/homePage" />} />
               <Route path="/homePage" element={<HomePage />} />
-              <Route path="/choicesPage" element={<ChoicesPage />} />
+              <Route path="/choicesPage" element={<Choices />} />
               <Route path="/categoryPage" element={<SearchByCategoryPage />} />
               <Route path="/searchPage" element={<SearchByTermPage />} />
               <Route path="/movieListPage/:genreId" element={<MovieListPage />} />
