@@ -56,6 +56,10 @@ const SignUp = () => {
         }
     };
 
+    const handleSignInClick = () => {
+        navigate('/signin');
+    };
+
     return (
         <div className="sign-up">
             <img src={logo} alt="Logo" className="sign-up-logo" />
@@ -107,6 +111,9 @@ const SignUp = () => {
                 </div>
                 <button type="submit" className="sign-up-button">Sign Up</button>
             </form>
+            <div className="sign-in-prompt">
+                <p>Already have an account? <span onClick={handleSignInClick} className="sign-in-link">Sign in here!</span></p>
+            </div>
             <ToastContainer />
         </div>
     );

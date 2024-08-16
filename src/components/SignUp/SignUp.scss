@@ -74,4 +74,21 @@
             }
         }
     }
+
+    .sign-in-prompt {
+        margin-top: 2em;
+        font-size: 0.9em;
+        color: $secondary-text-color;
+        text-align: center;
+
+        .sign-in-link {
+            color:  #0165d0;
+            cursor: pointer;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
