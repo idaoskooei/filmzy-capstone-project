@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import HeartIcon from '../HeartIcon/HeartIcon'; 
+import HeartIcon from '../HeartIcon/HeartIcon';
+import { useNavigate } from 'react-router-dom';
 import './Search.scss';
 
 const Search = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [likedMovies, setLikedMovies] = useState({});
+  const navigate = useNavigate(); 
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -35,6 +37,10 @@ const Search = () => {
     }));
   };
 
+  const handleMovieClick = (movieId) => {
+    navigate(`/movieDetail/${movieId}`); 
+  };
+
   return (
     <div className="search">
       <div className="search-bar">
@@ -52,7 +58,11 @@ const Search = () => {
       </div>
       <div className="movie-results">
         {movies.map((movie) => (
-          <div key={movie.id} className="movie-card">
+          <div 
+            key={movie.id} 
+            className="movie-card" 
+            onClick={() => handleMovieClick(movie.id)}
+          >
             <img 
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
               alt={movie.title} 
