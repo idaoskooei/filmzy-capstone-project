@@ -1,16 +1,24 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import './MovieList.scss';
+import HeartIcon from '../HeartIcon/HeartIcon';
 
 const MovieList = ({ movies }) => {
-  console.log('MovieList component rendered');
-  const navigate = useNavigate(); 
-  console.log(navigate);
+  const [likedMovies, setLikedMovies] = useState({});
+
+  const navigate = useNavigate();
 
   const handleMovieClick = (movieId) => {
-    console.log('Clicked movie ID:', movieId);
     navigate(`/movieDetail/${movieId}`);
   };
-  
+
+  const handleLikeToggle = (movieId) => {
+    setLikedMovies((prevLikedMovies) => ({
+      ...prevLikedMovies,
+      [movieId]: !prevLikedMovies[movieId]
+    }));
+  };
+
   return (
     <section className="movie-list">
       {movies.length > 0 ? (
@@ -24,7 +32,14 @@ const MovieList = ({ movies }) => {
             <div className="movie-details">
               <h3 className="movie-title" data-release-date={movie.release_date}>
                 {movie.title}
-              </h3>           
+              </h3>
+              <HeartIcon
+                liked={likedMovies[movie.id] || false}
+                onClick={(e) => {
+                  e.stopPropagation(); 
+                  handleLikeToggle(movie.id);
+                }}
+              />
               <p className="movie-description">{movie.overview}</p>
             </div>
           </div>

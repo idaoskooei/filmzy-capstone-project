@@ -54,7 +54,19 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+
+  svg {
+    margin-top: 0.5em;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: fill 0.2s;
+
+    &:hover {
+      fill: red;
+    }
   }
 }
