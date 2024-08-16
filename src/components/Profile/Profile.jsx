@@ -6,9 +6,10 @@ import { auth, storage, firestore } from '../../firebase-config';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { doc, updateDoc } from 'firebase/firestore';
 import ProfileModal from '../ProfileModal/ProfileModal';
 import { useAuth } from '../../contexts/AuthContext';
+import { updateProfile } from 'firebase/auth';
+
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -37,25 +38,22 @@ const Profile = () => {
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
-
+    
         setUploading(true);
         setModalOpen(false);
-
+    
         try {
             if (!authenticatedUser || !authenticatedUser.uid) {
                 throw new Error('User ID is missing');
             }
-
+    
             const storageRef = ref(storage, `profilePictures/${authenticatedUser.uid}`);
             await uploadBytes(storageRef, file);
-
+    
             const downloadURL = await getDownloadURL(storageRef);
-
-            const userDocRef = doc(firestore, 'users', authenticatedUser.uid);
-            await updateDoc(userDocRef, {
-                profilePicture: downloadURL,
-            });
-
+    
+            await updateProfile(auth.currentUser, { photoURL: downloadURL });
+    
             toast.success('Profile picture updated successfully!');
             setNewProfilePicture(downloadURL);
         } catch (error) {
@@ -65,6 +63,9 @@ const Profile = () => {
             setUploading(false);
         }
     };
+    
+    
+    
 
     const handleEditProfileClick = () => {
         setModalOpen(true); 
@@ -83,7 +84,7 @@ const Profile = () => {
         <div className="profile">
             <div className="profile-header">
                 <img
-                    src={newProfilePicture || authenticatedUser.photoURL || 'default-profile.png'}
+                    src={newProfilePicture || 'icon.png'}
                     alt="Profile"
                     className="profile-picture"
                 />
@@ -91,8 +92,8 @@ const Profile = () => {
             </div>
             <div className="profile-content">
                 <div className="favorites">
-                <button className='favorites-btn' disabled={isUploading}>Favorites</button>
-                <button className='edit' onClick={handleEditProfileClick} disabled={isUploading}>Edit My Profile</button>
+                    <button className='favorites-btn' disabled={isUploading}>Favorites</button>
+                    <button className='edit' onClick={handleEditProfileClick} disabled={isUploading}>Edit My Profile</button>
                 </div>
                 <button className="sign-out" onClick={handleSignOut} disabled={isUploading}>Sign Out</button>
             </div>

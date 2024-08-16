@@ -6,8 +6,9 @@ const ProfileModal = ({ isOpen, onClose, onImageChange }) => {
   
     const handleFileChange = (event) => {
         if (event.target.files.length > 0) {
-            onImageChange(event);
-        }
+            if (typeof onImageChange === 'function') {
+                onImageChange(event);
+            }        }
     };
   
     return (
