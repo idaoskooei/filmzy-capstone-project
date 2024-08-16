@@ -1,0 +1,48 @@
+.favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .movie-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+  
+  .movie-poster {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+  }
+  
+  .movie-details {
+    padding: 15px;
+    flex: 1;
+  }
+  
+  .movie-title {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+  }
+  
+  .movie-description {
+    margin: 10px 0 0;
+    color: #666;
+    font-size: 0.9em;
+  }
+  

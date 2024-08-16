@@ -9,6 +9,8 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import ProfileModal from '../ProfileModal/ProfileModal';
 import { useAuth } from '../../contexts/AuthContext';
 import { updateProfile } from 'firebase/auth';
+import FavoritesModal from '../FavoritesModal/FavoritesModal';
+import axios from 'axios';
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -16,12 +18,36 @@ const Profile = () => {
     const [isUploading, setUploading] = useState(false);
     const [newProfilePicture, setNewProfilePicture] = useState(authenticatedUser?.photoURL || '');
     const [isModalOpen, setModalOpen] = useState(false);
+    const [isFavoritesModalOpen, setFavoritesModalOpen] = useState(false);
+    const [favorites, setFavorites] = useState([]);
+    const [movies, setMovies] = useState([]); // State for movies
 
     useEffect(() => {
         if (authenticatedUser) {
             setNewProfilePicture(authenticatedUser.photoURL || '');
+
+            // Fetch all movies
+            const fetchMovies = async () => {
+                try {
+                    const response = await axios.get('https://api.themoviedb.org/3/movie/popular', {
+                        params: {
+                            api_key: 'b374a90d9ab89653cff28333dccd5836',
+                            language: 'en-US',
+                        }
+                    });
+                    setMovies(response.data.results);
+                } catch (error) {
+                    console.error('Error fetching movies:', error);
+                }
+            };
+
+            fetchMovies();
+
+            // Update favorites list
+            const savedFavorites = JSON.parse(localStorage.getItem('likedMovies')) || {};
+            setFavorites(Object.keys(savedFavorites).map(id => movies.find(movie => movie.id === parseInt(id))));
         }
-    }, [authenticatedUser]);
+    }, [authenticatedUser, movies]);
 
     const handleSignOut = async () => {
         try {
@@ -67,6 +93,16 @@ const Profile = () => {
         setModalOpen(true); 
     };
 
+    const handleFavoritesUpdate = () => {
+        const savedFavorites = JSON.parse(localStorage.getItem('likedMovies')) || {};
+        setFavorites(Object.keys(savedFavorites).map(id => movies.find(movie => movie.id === parseInt(id))));
+        setFavoritesModalOpen(true);
+    };
+
+    const handleMovieClick = (movieId) => {
+        navigate(`/movieDetail/${movieId}`);
+    };
+
     return (
         <div className="profile">
             <div className="profile-header">
@@ -79,16 +115,29 @@ const Profile = () => {
             </div>
             <div className="profile-content">
                 <div className="favorites">
-                    <button className='favorites-btn' disabled={isUploading}>Favorites</button>
-                    <button className='edit' onClick={handleEditProfileClick} disabled={isUploading}>Edit My Profile</button>
+                    <button onClick={handleFavoritesUpdate} className='favorites-btn' disabled={isUploading}>
+                        Show Favorites ({favorites.length})
+                    </button>
+                    <button className='edit' onClick={handleEditProfileClick} disabled={isUploading}>
+                        Edit My Profile
+                    </button>
                 </div>
-                <button className="sign-out" onClick={handleSignOut} disabled={isUploading}>Sign Out</button>
+                <button className="sign-out" onClick={handleSignOut} disabled={isUploading}>
+                    Sign Out
+                </button>
             </div>
             {isUploading && <div className="spinner"></div>}
             <ProfileModal
                 isOpen={isModalOpen}
                 onClose={() => setModalOpen(false)}
                 onImageChange={handleImageChange}
+                favorites={favorites} 
+            />
+            <FavoritesModal
+                isOpen={isFavoritesModalOpen}
+                onClose={() => setFavoritesModalOpen(false)}
+                favorites={favorites}
+                onMovieClick={handleMovieClick}
             />
             <ToastContainer />
         </div>

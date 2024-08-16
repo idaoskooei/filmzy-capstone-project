@@ -1,25 +1,37 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './MovieList.scss';
 import HeartIcon from '../HeartIcon/HeartIcon';
 
 const MovieList = ({ movies }) => {
   const [likedMovies, setLikedMovies] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const moviesPerPage = 5; 
+  const moviesPerPage = 5;
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedLikedMovies = JSON.parse(localStorage.getItem('likedMovies')) || {};
+    setLikedMovies(savedLikedMovies);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('likedMovies', JSON.stringify(likedMovies));
+  }, [likedMovies]);
 
   const handleMovieClick = (movieId) => {
     navigate(`/movieDetail/${movieId}`);
   };
 
   const handleLikeToggle = (movieId) => {
-    setLikedMovies((prevLikedMovies) => ({
-      ...prevLikedMovies,
-      [movieId]: !prevLikedMovies[movieId],
-    }));
-  };
+    const newLikedMovies = {
+        ...likedMovies,
+        [movieId]: !likedMovies[movieId],
+    };
+    setLikedMovies(newLikedMovies);
+    localStorage.setItem('likedMovies', JSON.stringify(newLikedMovies));
+};
+
 
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
