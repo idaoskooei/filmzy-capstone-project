@@ -1,0 +1,97 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-color;
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+
+    @include tablet {
+        max-width: 800px;
+    }
+
+    @include desktop {
+        max-width: 800px;
+        margin-top: 2rem;
+    }
+
+    .sign-in-logo {
+        width: 300px; 
+        margin-bottom: 1.5em;
+    }
+
+    .sign-in-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .form-group {
+            margin-bottom: 1em;
+
+            .form-label {
+                display: block;
+                font-size: 1em;
+                color: $secondary-text-color;
+                margin-bottom: 0.5em;
+            }
+
+            .form-input {
+                width: 100%;
+                padding: 0.75em;
+                border: 1px solid $border-color;
+                border-radius: 20px;
+                font-size: 1em;
+                box-sizing: border-box;
+                
+                &:focus {
+                    border-color: red;
+                    outline: none;
+                }
+            }
+        }
+
+        .sign-in-button {
+            font-size: 1em;
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: $button-border-radius;
+            background-color: $button-background-color;
+            color: $button-text-color;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                background-color: $button-hover-background-color;
+                color: $button-hover-text-color;
+            }
+        }
+    }
+
+    .sign-up-link {
+        margin-top: 2em;
+
+        p {
+            font-size: 0.9em;
+            color: $secondary-text-color;
+            text-align: center;
+
+            a {
+                color: #0165d0;
+                text-decoration: none;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

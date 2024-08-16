@@ -4,14 +4,16 @@ import './Welcome.scss';
 const Welcome = () => {
     const navigate = useNavigate();
 
-    const handleClick = () => {
+    const handleStartClick = () => {
         navigate('/choicesPage');
     };
 
     return (
         <div className="welcome">
             <p className="welcome-text">Tired of scrolling?</p>
-            <button className="welcome-button" onClick={handleClick}>Start</button>
+            <div className="button-container">
+                <button className="welcome-button" onClick={handleStartClick}>Start as Guest</button>
+            </div>
         </div>
     );
 };

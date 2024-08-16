@@ -2,11 +2,48 @@
 @use "../../styles/partials/colors" as *;
 
 .movie-list {
-  margin: 2rem;
+  margin: 4rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
   justify-content: center;
+
+  .pagination-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    button {
+      padding: 0.5em 1.5em;
+      margin: 0 0.5em;
+      border: none;
+      border-radius: 50px;
+      background-color: $primary-color;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+
+      &:hover:not(:disabled) {
+        background-color: darken($primary-color, 10%);
+        transform: translateY(-2px);
+      }
+
+      &:disabled {
+        background-color: lighten($primary-color, 20%);
+        cursor: not-allowed;
+      }
+    }
+
+    span {
+      margin: 0 1em;
+      font-size: 1.2em;
+      color: $text-color;
+    }
+  }
 }
 
 .movie-card {
@@ -54,7 +91,19 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+
+  svg {
+    margin-top: 0.5em;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: fill 0.2s;
+
+    &:hover {
+      fill: red;
+    }
   }
 }
