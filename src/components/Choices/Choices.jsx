@@ -24,7 +24,7 @@ const handleRandomButtonClick = () => {
         <p className="choices-text">Choices:</p>
         <div className="choices-buttons">
           <button className="choices-button" onClick={handleCategoryButtonClick}> Pick a  <br /> Category</button>
-          <button className="choices-button" onClick={handleRandomButtonClick}> Random <br /> Movie <br />Recommendation</button>
+          <button className="choices-button" onClick={handleRandomButtonClick}> Surprise me!</button>
           <button className="choices-button" onClick={handleSearchButtonClick}> Search by <br /> term</button>
         </div>
       </div>
