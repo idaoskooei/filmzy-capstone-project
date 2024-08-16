@@ -14,21 +14,19 @@
 .modal-content {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
+    border-radius: 15px;
+    max-width: 400px;
     width: 90%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 250px; 
+    justify-content: center;
+    align-items: flex-start;
+    height: 200px; 
 }
 
 input[type="file"] {
-    margin-top: 20px;
-    padding: 10px;
-    flex-grow: 1; 
+    margin: 70px;
 }
 
 .close-button {
@@ -36,8 +34,8 @@ input[type="file"] {
     background-color: #f44336;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     align-self: center; 
-    margin-top: 20px;
+    margin-top: 70px;
 }
