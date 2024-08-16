@@ -64,21 +64,9 @@ const Profile = () => {
         }
     };
     
-    
-    
-
     const handleEditProfileClick = () => {
         setModalOpen(true); 
     };
-
-    if (!authenticatedUser) {
-        return (
-            <div className='no-user-container'>
-                <p className="profile-message">Please Sign in to see your profile!</p>
-                <button className='start-button' onClick={() => navigate("/")}>Start Here!</button>
-            </div>
-        ); 
-    }
 
     return (
         <div className="profile">
