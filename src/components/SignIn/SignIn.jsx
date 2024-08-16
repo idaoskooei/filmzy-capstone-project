@@ -34,7 +34,7 @@ const SignIn = () => {
             setEmail('');
             setPassword('');
             setTimeout(() => {
-                navigate('/choicespage');
+                navigate('/profile');
             }, 2000);
         } catch (error) {
             let errorMessage = 'An error occurred';
@@ -86,6 +86,9 @@ const SignIn = () => {
                 </div>
                 <button type="submit" className="sign-in-button">Sign In</button>
             </form>
+            <div className="sign-up-link">
+                <p> Don't have an account yet?  <a href="/signup">  Sign up here</a></p>
+            </div>
             <ToastContainer />
         </div>
     );

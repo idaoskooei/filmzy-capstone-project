@@ -2,7 +2,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
 
-
 .sign-in {
     display: flex;
     flex-direction: column;
@@ -15,11 +14,11 @@
     max-width: 400px;
     margin: 0 auto;
 
-    @include tablet{
+    @include tablet {
         max-width: 800px;
     }
 
-    @include desktop{
+    @include desktop {
         max-width: 800px;
         margin-top: 2rem;
     }
@@ -28,7 +27,6 @@
         width: 300px; 
         margin-bottom: 1.5em;
     }
-
 
     .sign-in-form {
         width: 100%;
@@ -73,6 +71,26 @@
             &:hover {
                 background-color: $button-hover-background-color;
                 color: $button-hover-text-color;
+            }
+        }
+    }
+
+    .sign-up-link {
+        margin-top: 2em;
+
+        p {
+            font-size: 0.9em;
+            color: $secondary-text-color;
+            text-align: center;
+
+            a {
+                color: #0165d0;
+                text-decoration: none;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
