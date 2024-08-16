@@ -1,39 +1,39 @@
 .favorites-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
-    .movie-card {
-        width: 200px;
-        height: 220px;
-        background: #f9f9f9;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .movie-card {
+    width: 200px;
+    height: 220px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        &:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .movie-poster {
-            width: 70%;
-            height: 60%; 
-            object-fit: cover;
-        }
-
-        .movie-details {
-            padding: 10px;
-            text-align: center;
-
-            .movie-title {
-                font-size: 1rem;
-                margin: 10px 0;
-                color: #333;
-            }
-        }
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
+
+    .movie-poster {
+      width: 70%;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .movie-details {
+      padding: 10px;
+      text-align: center;
+
+      .movie-title {
+        font-size: 1rem;
+        margin: 10px 0;
+        color: #333;
+      }
+    }
+  }
 }

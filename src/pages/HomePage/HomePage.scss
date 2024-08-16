@@ -2,28 +2,29 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .home-page {
   flex: 1;
-  background-image: url('../../assets/images/mobile-background.png');
+  background-image: url("../../assets/images/mobile-background.png");
   background-color: $home-page-background;
-  background-size:cover;
+  background-size: cover;
   height: 100vh;
   overflow: hidden;
 
   @include tablet {
-    background-image: url('../../assets/images/home-page.svg');
+    background-image: url("../../assets/images/home-page.svg");
     padding: 1.5em;
   }
 
   @include desktop {
-    background-image: url('../../assets/images/home-page.svg');
+    background-image: url("../../assets/images/home-page.svg");
     padding: 2em;
   }
 }

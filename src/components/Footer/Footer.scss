@@ -1,15 +1,14 @@
 @use "../../styles/partials/colors" as *;
-
 @use "../../styles/partials/colors" as *;
 
 .footer {
-    background-color: $header-footer-background;
-    color: black;
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
+  background-color: $header-footer-background;
+  color: black;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
 }

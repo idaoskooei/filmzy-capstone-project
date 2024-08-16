@@ -1,4 +1,4 @@
-import RandomMovie from '../../components/RandomMovie/RandomMovie';
+import RandomMovie from "../../components/RandomMovie/RandomMovie";
 
 const RandomMoviePage = () => {
   return (

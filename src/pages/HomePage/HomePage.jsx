@@ -1,6 +1,5 @@
-import React from 'react';
-import './HomePage.scss';
-import Welcome from '../../components/Welcome/Welcome';
+import "./HomePage.scss";
+import Welcome from "../../components/Welcome/Welcome";
 
 const HomePage = () => {
   return (

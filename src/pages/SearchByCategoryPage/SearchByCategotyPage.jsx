@@ -1,14 +1,12 @@
-import React from 'react';
-import Categories from '../../components/Categories/Categories'
-import './SearchByCategoryPage.scss';
-
+import Categories from "../../components/Categories/Categories";
+import "./SearchByCategoryPage.scss";
 
 const SearchByCategoryPage = () => {
-    return (
-        <div>
-           <Categories />
-        </div>
-    );
+  return (
+    <div>
+      <Categories />
+    </div>
+  );
 };
 
 export default SearchByCategoryPage;

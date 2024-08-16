@@ -1,7 +1,6 @@
-@use '../../styles/partials/breakpoints' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/colors' as *;
-
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
 
 .random-movie {
   display: flex;
@@ -12,7 +11,7 @@
   padding: 1em;
   border-radius: 10px;
   max-width: 100%;
-  
+
   h2 {
     font-size: 1.8em;
     margin-bottom: 1.8em;
@@ -38,7 +37,7 @@
         display: flex;
         padding: 1rem;
         align-items: flex-start;
-        justify-content:flex-start;
+        justify-content: flex-start;
         font-size: 1em;
         margin: 0.5em 0;
         color: #333;
@@ -67,13 +66,13 @@
     border: none;
     border-radius: $button-border-radius;
     background-color: $button-background-color;
-    color: $button-text-color; 
+    color: $button-text-color;
     cursor: pointer;
-    transition: background-color 0.3s; 
-    
+    transition: background-color 0.3s;
+
     &:hover {
-        color: $white-color;
-        background-color: #0056b3;
+      color: $white-color;
+      background-color: #0056b3;
     }
   }
 
@@ -84,7 +83,7 @@
       .movie-info {
         text-align: left;
         p {
-          font-size: 1em; 
+          font-size: 1em;
         }
       }
     }
@@ -94,7 +93,7 @@
     .movie-details {
       .movie-info {
         p {
-          font-size: 1.1em; 
+          font-size: 1.1em;
         }
       }
     }
