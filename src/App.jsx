@@ -46,9 +46,6 @@ function App() {
 
 function PrivateRoute({ children }) {
   const { authenticatedUser } = useAuth();
-  if (!authenticatedUser) {
-    return <Navigate to="/signin" />;
-  }
-  return children;
+  return authenticatedUser ? children : <Navigate to="/signin" />;
 }
 export default App;
