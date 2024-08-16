@@ -2,14 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import HeartIcon from "../HeartIcon/HeartIcon";
 import { useNavigate } from "react-router-dom";
 import "./Search.scss";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
-  const [likedMovies, setLikedMovies] = useState({});
   const navigate = useNavigate();
 
   const handleSearch = async (e) => {
@@ -31,13 +29,6 @@ const Search = () => {
         console.error("Error fetching data from TMDB", error);
       }
     }
-  };
-
-  const handleLikeToggle = (movieId) => {
-    setLikedMovies((prevLikedMovies) => ({
-      ...prevLikedMovies,
-      [movieId]: !prevLikedMovies[movieId],
-    }));
   };
 
   const handleMovieClick = (movieId) => {
@@ -74,13 +65,6 @@ const Search = () => {
             <div className="movie-release-date">
               Release Date: {movie.release_date}
             </div>
-            <HeartIcon
-              liked={likedMovies[movie.id] || false}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleLikeToggle(movie.id);
-              }}
-            />
             <div className="movie-description">{movie.overview}</div>
           </div>
         ))}
