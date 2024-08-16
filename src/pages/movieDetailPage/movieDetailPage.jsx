@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import MovieDetail from "../../components/MovieDetail/MovieDetail";
+import MovieDetail from "../../components/MovieDetailPage/MovieDetailPage";
 
 const MovieDetailPage = () => {
   const { movieId } = useParams();
