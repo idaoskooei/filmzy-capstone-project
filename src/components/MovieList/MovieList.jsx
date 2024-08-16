@@ -5,6 +5,8 @@ import HeartIcon from '../HeartIcon/HeartIcon';
 
 const MovieList = ({ movies }) => {
   const [likedMovies, setLikedMovies] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const moviesPerPage = 5; 
 
   const navigate = useNavigate();
 
@@ -15,14 +17,32 @@ const MovieList = ({ movies }) => {
   const handleLikeToggle = (movieId) => {
     setLikedMovies((prevLikedMovies) => ({
       ...prevLikedMovies,
-      [movieId]: !prevLikedMovies[movieId]
+      [movieId]: !prevLikedMovies[movieId],
     }));
+  };
+
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  const totalPages = Math.ceil(movies.length / moviesPerPage);
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (
     <section className="movie-list">
-      {movies.length > 0 ? (
-        movies.map((movie) => (
+      {currentMovies.length > 0 ? (
+        currentMovies.map((movie) => (
           <div key={movie.id} className="movie-card" onClick={() => handleMovieClick(movie.id)}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -36,7 +56,7 @@ const MovieList = ({ movies }) => {
               <HeartIcon
                 liked={likedMovies[movie.id] || false}
                 onClick={(e) => {
-                  e.stopPropagation(); 
+                  e.stopPropagation();
                   handleLikeToggle(movie.id);
                 }}
               />
@@ -47,6 +67,18 @@ const MovieList = ({ movies }) => {
       ) : (
         <p>No movies found for this category.</p>
       )}
+
+      <div className="pagination-controls">
+        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+          Next
+        </button>
+      </div>
     </section>
   );
 };
