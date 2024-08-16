@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import './Profile.scss';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { auth, storage, firestore } from '../../firebase-config';
+import { auth, storage } from '../../firebase-config';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import ProfileModal from '../ProfileModal/ProfileModal';
 import { useAuth } from '../../contexts/AuthContext';
 import { updateProfile } from 'firebase/auth';
-
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -63,7 +62,7 @@ const Profile = () => {
             setUploading(false);
         }
     };
-    
+
     const handleEditProfileClick = () => {
         setModalOpen(true); 
     };
@@ -76,7 +75,7 @@ const Profile = () => {
                     alt="Profile"
                     className="profile-picture"
                 />
-                <h2 className="user-name">{authenticatedUser.displayName || 'User'}</h2>
+                <h2 className="user-name">{authenticatedUser.email}</h2>
             </div>
             <div className="profile-content">
                 <div className="favorites">
