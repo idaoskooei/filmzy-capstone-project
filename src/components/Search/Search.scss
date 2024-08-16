@@ -2,125 +2,138 @@
 @use "../../styles/partials/colors" as *;
 
 .search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-image: url('../../assets/images/choices-mobile-background.png'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../../assets/images/choices-mobile-background.png'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 1em;
 
-    @include tablet {
-        background-image: url('../../assets/images/choices-background.png'); 
-        padding: 1.5em;
-    }
+  @include tablet {
+    background-image: url('../../assets/images/choices-background.png'); 
+    padding: 1.5em;
+  }
 
-    @include desktop {
-        background-image: url('../../assets/images/choices-background.png'); 
-        padding: 2em;
-    }
+  @include desktop {
+    background-image: url('../../assets/images/choices-background.png'); 
+    padding: 2em;
+  }
 }
 
 .search-bar {
+  width: 100%;
+  margin-bottom: 2em;
+
+  form {
+    display: flex;
+    gap: 0.5em;
     width: 100%;
-    margin-bottom: 2em;
-    form {
-        display: flex;
-        gap: 0.5em;
-        width: 100%;
+  }
+
+  input {
+    padding: 1em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    flex-grow: 1;
+    height: 50px;
+
+    @include tablet {
+      flex-grow: 1;
     }
 
-    input {
-        padding: 1em;
-        font-size: 1em;
-        border: none;
-        border-radius: 5px;
-        flex-grow: 1;
-        height: 50px;
-
-        @include tablet {
-            flex-grow: 1;
-        }
-
-        @include desktop {
-            flex-grow: 1;
-        }
+    @include desktop {
+      flex-grow: 1;
     }
+  }
 
-    button {
-        padding: 1em;
-        font-size: 1em;
-        border: none;
-        background: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: black;
-        height: 50px;
+  button {
+    padding: 1em;
+    font-size: 1em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    height: 50px;
 
-        svg {
-            font-size: 1.5em;
-        }
+    svg {
+      font-size: 1.5em;
     }
+  }
 }
 
 .movie-results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
 }
 
 .movie-card {
-    cursor: pointer;
-    background-color: white;
-    padding: 1em;
-    border-radius: 15px;
-    width: 250px;
-    height: 350px; 
-    text-align: center;
+  cursor: pointer;
+  background-color: white;
+  padding: 1em;
+  border-radius: 15px;
+  width: 255px;
+  height: 355px; 
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: 60%;
+    border-radius: 10px;
+    object-fit: cover; 
+  }
+
+  .movie-title {
+    margin-top: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .movie-release-date {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .movie-description {
+    margin-top: 0.5em;
+    font-size: 0.9em;
     color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+  }
+
+  svg {
+    margin-top: 0.5em;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: fill 0.2s;
 
     &:hover {
-        transform: scale(1.05);
+      fill: red;
     }
-
-    img {
-        width: 100%;
-        height: 60%;
-        border-radius: 10px;
-        object-fit: cover; 
-    }
-
-    .movie-title {
-        margin-top: 0.5em;
-        font-size: 1em;
-        font-weight: bold;
-    }
-
-    .movie-release-date {
-        margin-top: 0.5em;
-        font-size: 0.9em;
-        color: rgba(0, 0, 0, 0.7);
-    }
-
-    .movie-description {
-        margin-top: 0.5em;
-        font-size: 0.9em;
-        color: black;
-        text-align: left;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; 
-        -webkit-box-orient: vertical;
-    }
+  }
 }
