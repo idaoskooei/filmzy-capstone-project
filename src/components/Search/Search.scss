@@ -11,16 +11,7 @@
   background-position: center;
   background-attachment: fixed;
   padding: 1em;
-
-  @include tablet {
-    background-image: url("../../assets/images/choices-background.png");
-    padding: 1.5em;
-  }
-
-  @include desktop {
-    background-image: url("../../assets/images/choices-background.png");
-    padding: 2em;
-  }
+  margin-top: 1em;
 }
 
 .search-bar {
@@ -40,14 +31,6 @@
     border-radius: 5px;
     flex-grow: 1;
     height: 50px;
-
-    @include tablet {
-      flex-grow: 1;
-    }
-
-    @include desktop {
-      flex-grow: 1;
-    }
   }
 
   button {
@@ -123,5 +106,27 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+}
+
+@include tablet {
+  .search {
+    background-image: url("../../assets/images/choices-background.png");
+    padding: 1.5em;
+  }
+
+  .search-bar input {
+    flex-grow: 1;
+  }
+}
+
+@include desktop {
+  .search {
+    background-image: url("../../assets/images/choices-background.png");
+    padding: 2em;
+  }
+
+  .search-bar input {
+    flex-grow: 1;
   }
 }
