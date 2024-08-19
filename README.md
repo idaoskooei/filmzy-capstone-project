@@ -47,7 +47,10 @@ To start the application locally:
 2. Run `npm run dev` to launch the app.
 
 
-## Sitemap
+## Sitemap created using Canva
+
+![sitemap](https://github.com/user-attachments/assets/f010857f-2068-492b-839e-95639fdb9a75)
+
   this sitemap includes several pages:
   - the home page
   - the choices page
@@ -57,67 +60,6 @@ To start the application locally:
   - search by term page
   - movie details page
     
-![sitemap](https://github.com/user-attachments/assets/f010857f-2068-492b-839e-95639fdb9a75)
-
-
-
-
-
-
-## Mockups created using Canva
-
-
-
-- **Home page:**
-  
-![home](https://github.com/user-attachments/assets/80ba9b44-cb89-48ba-b627-75977ebd8a0a)
-
-
-
-
-- **Choices:**
-  
-![choices](https://github.com/user-attachments/assets/2e4d684d-e4ea-4802-aa2a-f58df8778d07)
-
-
-
-
-- **Pick a Category:**
-  
-![pick a category](https://github.com/user-attachments/assets/effb3a81-7257-453b-86de-1213b91988f8)
-
-
-
-
-- **List of movies based on chosen category:**
-
-
-![list of movies based on category](https://github.com/user-attachments/assets/47a62821-fa32-4a92-b644-3b34cdb32599)
-
-
-
-
-
-- **Pick a random Movie:**
-
-![random movie](https://github.com/user-attachments/assets/6d41fb6c-b223-46e4-8edc-2c3762e4920e)
-
-
-
-
-
-- **Search for a Movie:**
-  
-![search for a movie](https://github.com/user-attachments/assets/33cd3630-ec99-4946-804a-21330f76480a)
-
-
-
-
-- **Movie Details:**
-  
-![movie detail](https://github.com/user-attachments/assets/26d34934-dc2f-4f5d-a70c-29515a726fd6)
-
-
 
 
 ## RoadMap:
