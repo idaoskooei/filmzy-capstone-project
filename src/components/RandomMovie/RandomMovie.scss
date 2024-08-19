@@ -40,15 +40,15 @@
         justify-content: flex-start;
         font-size: 1em;
         margin: 0.5em 0;
-        color: #333;
+        color: $welcome-text;
 
         svg {
           margin-right: 0.5em;
-          color: #555;
+          color: $svg-icon-color;
         }
 
         a {
-          color: #007bff;
+          color: $button-background-color;
           text-decoration: none;
 
           &:hover {
@@ -72,7 +72,7 @@
 
     &:hover {
       color: $white-color;
-      background-color: #0056b3;
+      background-color: $button-hover-background-color;
     }
   }
 

@@ -52,7 +52,7 @@
         box-sizing: border-box;
 
         &:focus {
-          border-color: red;
+          border-color: $close-button-modal;
           outline: none;
         }
       }
@@ -84,7 +84,7 @@
       text-align: center;
 
       a {
-        color: #0165d0;
+        color: $button-hover-background-color;
         text-decoration: none;
         font-weight: bold;
 

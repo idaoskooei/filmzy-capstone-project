@@ -1,3 +1,5 @@
+@use "../../styles/partials/colors" as *;
+
 .modal {
   position: fixed;
   top: 0;
@@ -32,8 +34,8 @@ input[type="file"] {
 
 .close-button {
   padding: 10px 20px;
-  background-color: #f44336;
-  color: white;
+  background-color: $close-button-modal;
+  color: $white-color;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -42,7 +44,7 @@ input[type="file"] {
   margin-top: 20px;
 
   &:hover {
-    background: #c0392b;
+    background: $hover-close-button-modal;
   }
 
   &:focus {

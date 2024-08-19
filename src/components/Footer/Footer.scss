@@ -1,9 +1,8 @@
 @use "../../styles/partials/colors" as *;
-@use "../../styles/partials/colors" as *;
 
 .footer {
   background-color: $header-footer-background;
-  color: black;
+  color: $separator-color;
   text-align: center;
   padding: 1em 0;
   position: fixed;

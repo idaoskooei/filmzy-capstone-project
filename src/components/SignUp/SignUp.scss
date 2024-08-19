@@ -52,7 +52,7 @@
         box-sizing: border-box;
 
         &:focus {
-          border-color: red;
+          border-color: $close-button-modal;
           outline: none;
         }
       }
@@ -82,7 +82,7 @@
     text-align: center;
 
     .sign-in-link {
-      color: #0165d0;
+      color: $button-hover-background-color;
       cursor: pointer;
       font-weight: bold;
 

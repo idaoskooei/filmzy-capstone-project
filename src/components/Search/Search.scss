@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: $separator-color;
     height: 50px;
 
     svg {
@@ -77,13 +77,13 @@
 
 .movie-card {
   cursor: pointer;
-  background-color: white;
+  background-color: $white-color;
   padding: 1em;
   border-radius: 15px;
   width: 255px;
   height: 355px;
   text-align: center;
-  color: black;
+  color: $separator-color;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,7 +116,7 @@
   .movie-description {
     margin-top: 0.5em;
     font-size: 0.9em;
-    color: black;
+    color: $separator-color;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;

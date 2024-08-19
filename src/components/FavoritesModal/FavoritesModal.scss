@@ -1,3 +1,5 @@
+@use "../../styles/partials/colors" as *;
+
 .favorites-modal {
   position: fixed;
   top: 0;
@@ -12,7 +14,7 @@
 
   .modal-content {
     height: 400px;
-    background: #fff;
+    background: $item-background-color;
     padding: 20px;
     border-radius: 12px;
     width: 100%;
@@ -23,15 +25,15 @@
     .close-btn {
       align-self: center;
       padding: 10px 20px;
-      background-color: #f44336;
-      color: white;
+      background-color: $close-button-modal;
+      color: $item-background-color;
       border: none;
       border-radius: 30px;
       cursor: pointer;
       margin: 50px;
 
       &:hover {
-        background: #c0392b;
+        background: $hover-close-button-modal;
       }
 
       &:focus {
@@ -42,7 +44,7 @@
     h2 {
       margin: 0;
       font-size: 1.5rem;
-      color: #333;
+      color: $separator-color;
       border-bottom: 2px solid #f39c12;
       padding-bottom: 10px;
       margin-bottom: 15px;

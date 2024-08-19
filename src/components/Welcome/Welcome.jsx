@@ -13,7 +13,7 @@ const Welcome = () => {
       <p className="welcome-text">Tired of scrolling?</p>
       <div className="button-container">
         <button className="welcome-button" onClick={handleStartClick}>
-          Start as Guest
+          Start!
         </button>
       </div>
     </div>
