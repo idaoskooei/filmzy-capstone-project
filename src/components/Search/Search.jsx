@@ -8,6 +8,7 @@ import "./Search.scss";
 const Search = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const [noResults, setNoResults] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = async (e) => {
@@ -24,7 +25,13 @@ const Search = () => {
             },
           }
         );
-        setMovies(response.data.results);
+        const results = response.data.results;
+        if (results.length === 0) {
+          setNoResults(true);
+        } else {
+          setMovies(results);
+          setNoResults(false);
+        }
       } catch (error) {
         console.error("Error fetching data from TMDB", error);
       }
@@ -50,25 +57,29 @@ const Search = () => {
           </button>
         </form>
       </div>
-      <div className="movie-results">
-        {movies.map((movie) => (
-          <div
-            key={movie.id}
-            className="movie-card"
-            onClick={() => handleMovieClick(movie.id)}
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <div className="movie-title">{movie.title}</div>
-            <div className="movie-release-date">
-              Release Date: {movie.release_date}
+      {noResults ? (
+        <div className="no-results">No movies found with that title. Try again!</div>
+      ) : (
+        <div className="movie-results">
+          {movies.map((movie) => (
+            <div
+              key={movie.id}
+              className="movie-card"
+              onClick={() => handleMovieClick(movie.id)}
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <div className="movie-title">{movie.title}</div>
+              <div className="movie-release-date">
+                Release Date: {movie.release_date}
+              </div>
+              <div className="movie-description">{movie.overview}</div>
             </div>
-            <div className="movie-description">{movie.overview}</div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

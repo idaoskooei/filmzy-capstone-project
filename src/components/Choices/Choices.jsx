@@ -4,18 +4,6 @@ import "./Choices.scss";
 const Choices = () => {
   const navigate = useNavigate();
 
-  const handleCategoryButtonClick = () => {
-    navigate("/categoryPage");
-  };
-
-  const handleSearchButtonClick = () => {
-    navigate("/searchPage");
-  };
-
-  const handleRandomButtonClick = () => {
-    navigate("/randomMovie");
-  };
-
   return (
     <div className="choices">
       <div className="choices-content">
@@ -23,17 +11,20 @@ const Choices = () => {
         <div className="choices-buttons">
           <button
             className="choices-button"
-            onClick={handleCategoryButtonClick}
+            onClick={() => navigate("/categoryPage")}
           >
-            {" "}
             Pick a <br /> Category
           </button>
-          <button className="choices-button" onClick={handleRandomButtonClick}>
-            {" "}
+          <button
+            className="choices-button"
+            onClick={() => navigate("/randomMovie")}
+          >
             Surprise me!
           </button>
-          <button className="choices-button" onClick={handleSearchButtonClick}>
-            {" "}
+          <button
+            className="choices-button"
+            onClick={() => navigate("/searchPage")}
+          >
             Search by <br /> term
           </button>
         </div>
